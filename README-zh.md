@@ -97,6 +97,7 @@ Modern browsers and Internet Explorer 10+.
 
 Copyright (c) 2017-present PanJiaChen
 
+## =================================以上致敬作者，华丽分割线===========================================
 
 
 ## 去除mock，请求真实的接口
@@ -149,4 +150,4 @@ res.code === 20000 || res.success === true
 
 ## Demo
 
-![demo](https://github.com/PanJiaChen/PanJiaChen.github.io/blob/master/images/demo.gif)
+![demo](https://github.com/fangwandong/fangwandong.github.static/blob/master/vue-admin-template/demo.png)
