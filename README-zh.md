@@ -96,3 +96,57 @@ Modern browsers and Internet Explorer 10+.
 [MIT](https://github.com/PanJiaChen/vue-admin-template/blob/master/LICENSE) license.
 
 Copyright (c) 2017-present PanJiaChen
+
+
+
+## 去除mock，请求真实的接口
+
+### 1、修改 vue.config.js
+
+```bash
+# 在 devServer 中新增proxy，解决跨域问题
+	
+   proxy: {
+      '/testAll': {
+        target: 'http://localhost:8043/hello/testAll', // 对应自己的接口
+        changeOrigin: true,
+        ws: true,
+        pathRewrite: {
+          '^/testAll': ''
+        }
+      }
+    }, 
+
+```
+
+### 2、修改 src\api\table.js 
+```bash
+# 将 url: '/vue-admin-template/table/list' 修改成：
+
+url: 'http://localhost:9528/testAll'
+
+```
+
+### 3、修改 src\utils\request.js 
+
+```bash
+# 在 res.code === 20000 后新增自己接口返回状态码判断
+# 例如：
+
+res.code === 20000 || res.success === true
+	
+```
+
+### 4、修改 src\views\table\index.vue 
+
+```bash
+# 在模板中把接口返回的数据渲染出来。
+# 修改页面对应的字段，例如：
+
+ {{ scope.$index+1 }}
+	
+```
+
+## Demo
+
+![demo](https://github.com/PanJiaChen/PanJiaChen.github.io/blob/master/images/demo.gif)
